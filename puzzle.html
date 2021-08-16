@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		var score = 0;
+
+		function checkAnswer(inputId, answers){
+			var userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for(var i = 0; i < answers.length; i++){
+				if(userAnswer == answers[i]){
+					score++;
+					break;
+				}
+			}
+		}
+		
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1", ["Кактус", "кактус"]);
+			checkAnswer("userAnswer2", ["Арбуз", "арбуз"]);
+			checkAnswer("userAnswer3", ["Корова", "корова"]);
+
+			alert("Загадок отгадано: " + score);
+
+		}
+
+	</script>
+</head>
+<body>
+
+	<div class="content">
+		<div class="header">
+			<a href="index.html">Главная</a>
+			<a href="#">Загадки</a>
+			<a href="guess.html">Угадайка мультиплеер</a>
+			<a href="password_generator.html">Генератор случайных паролей</a>
+		</div>
+
+	<div class="contentWrap">
+		<div class="content">
+			<div class="center">
+
+				<h1>Игра в загадки</h1>
+
+				<div class="box">
+
+					<p>Ёжик странный у Егорки. На окне сидит в ведерке. День и ночь он дремлет, спрятав ножки в землю.</p>
+					<input type="text" id="userAnswer1">
+
+					<p>Кафтан на мне зеленый, а сердце — как кумач. На вкус, как сахар, сладок, на вид — похож на мяч.</p>
+					<input type="text" id="userAnswer2">
+
+					<p>Один — махай, четыре — гуляй, два — детям страсть, четыре — всем сласть.</p>
+					<input type="text" id="userAnswer3">
+
+					<br>
+					<a href="#" onClick="checkAnswers();">Ответить</a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<div class="footer">
+		Copyright &copy; 2021 GeekBrains, Ilya Chvanov
+	<div>
+</body>
+</html>

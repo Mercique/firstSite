@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+	function guess() {
+		function exitId(answers) {
+            if (answers == "q")
+                return 0;
+        }
+
+        function ans() {
+            userAnswer = parseInt(userAnswer);
+            if (userAnswer > answer) {
+                alert(user2 + ", вы не угадали! Ваш ответ слишком большой.\nВ этом раунде никто не угадал!\nБыло загадано число: " + answer + "!\nПереход на следующий круг!");
+            } else if (userAnswer < answer) {    
+                alert(user2 + ", вы не угадали! Ваш ответ слишком маленький.\nВ этом раунде никто не угадал!\nБыло загадано число: " + answer + "!\nПереход на следующий круг!");
+            } else if (userAnswer == answer) {
+                alert(user2 + " победил!\nИгроку с именем " + user2 + " понадобилось попыток: " + attempt + "!");
+                return 0;
+            } else {
+                alert("Необходимо ввести положительное число от 0 до 100!");
+            }
+        }
+
+        function check() {
+            userAnswer = parseInt(userAnswer);
+            if (userAnswer > answer) {
+                userAnswer = prompt(user1 + ", вы не угадали! Ваш ответ слишком большой.\n" + user2 + ", угадайте число от 0 до 100, ваш ход!\n\n(Чтобы выйти из игры напишите 'q')");
+                
+                if(exitId(userAnswer) == 0 || ans() == 0)
+                    return 0;
+                
+            } else if (userAnswer < answer) {    
+                userAnswer = prompt(user1 + ", вы не угадали! Ваш ответ слишком маленький.\n" + user2 + ", угадайте число от 0 до 100, ваш ход!\n\n(Чтобы выйти из игры напишите 'q')");
+                
+                if (exitId(userAnswer) == 0 || ans() == 0)
+                    return 0;
+                
+            } else if (userAnswer == answer) {
+                alert(user1 + " победил!\nИгроку с именем " + user1 + " понадобилось попыток: " + attempt + "!");
+                return 0;
+            } else {
+                alert("Необходимо ввести положительное число от 0 до 100!");
+            }
+            attempt++;
+        }
+
+
+        var attempt = 1; // Попытка
+        var user1 = prompt("Игрок 1, введите свое имя:"); // Первый игрок
+        var user2 = prompt("Игрок 2, введите свое имя:"); // Второй игрок
+
+        while (true) { // Бесконечное число попыток
+            var answer = parseInt(Math.random() * 100);
+            var userAnswer = prompt("Угадайте число от 0 до 100. Попытка №" + attempt + "\nХодит " + user1 + ":\n\n(Чтобы выйти из игры напишите 'q')");            
+            if(exitId(userAnswer) == 0) {
+                break;
+            } else if (check() == 0) {
+                break;
+            }
+        }
+	}
+
+	</script>
+</head>
+<body>
+
+    <div class="content">
+        <div class="header">
+            <a href="index.html">Главная</a>
+            <a href="puzzle.html">Загадки</a>
+            <a href="#">Угадайка мультиплеер</a>
+            <a href="password_generator.html">Генератор случайных паролей</a>
+        </div>
+
+    <div class="contentWrap">
+        <div class="content">
+            <div class="center">
+
+                <h1>Игра угадайка<br>Угадайте число от 0 до 100</br>Игра для двух игроков</h1>
+
+                <div class="box">
+                    
+                    <a class="a_guess" href="#" onClick="guess();" id="button">Начать</a>				
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        
+
+    </div>
+    <div class="footer">
+        Copyright &copy; 2021 GeekBrains, Ilya Chvanov
+    <div>
+
+</body>
+</html>
